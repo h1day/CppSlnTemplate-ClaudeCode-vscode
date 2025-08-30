@@ -2,10 +2,30 @@
 //
 
 #include <iostream>
+using namespace std;
+
+// Test function to trigger cl.exe (MSVC) warnings
+void test_function() {
+    int unused_variable;                // C4101: unreferenced local variable
+    
+    int x = 3.14;                       // C4244: conversion from 'double' to 'int'
+    
+    if (x = 5) {                        // C4706: assignment within conditional expression
+        cout << "Warning test" << endl;
+    }
+
+    // Signed/unsigned comparison warning
+    unsigned int ui = 10;
+    int si = -5;
+    if (ui > si) {                      // C4018: signed/unsigned mismatch
+        cout << "Comparison warning" << endl;
+    }
+}
 
 int main()
 {
     std::cout << "Hello World!\n";
+    test_function();
     return 0;
 }
 
