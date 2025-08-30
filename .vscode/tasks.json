@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Build Debug",
+      "label": "🔨 Build Debug",
       "type": "shell",
       "command": "msbuild",
       "args": [
@@ -15,10 +15,11 @@
         "kind": "build",
         "isDefault": true
       },
+      "detail": "Build project in Debug configuration (x64)",
       "problemMatcher": "$msCompile"
     },
     {
-      "label": "Build Release",
+      "label": "🔨 Build Release",
       "type": "shell",
       "command": "msbuild",
       "args": [
@@ -27,10 +28,11 @@
         "/p:Configuration=Release",
         "/p:Platform=x64"
       ],
+      "detail": "Build project in Release configuration (x64)",
       "problemMatcher": "$msCompile"
     },
     {
-      "label": "Clean Debug",
+      "label": "🧹 Clean Debug",
       "type": "shell",
       "command": "msbuild",
       "args": [
@@ -39,10 +41,11 @@
         "/p:Configuration=Debug",
         "/p:Platform=x64"
       ],
+      "detail": "Clean Debug build artifacts",
       "problemMatcher": "$msCompile"
     },
     {
-      "label": "Clean Release",
+      "label": "🧹 Clean Release",
       "type": "shell",
       "command": "msbuild",
       "args": [
@@ -51,6 +54,7 @@
         "/p:Configuration=Release",
         "/p:Platform=x64"
       ],
+      "detail": "Clean Release build artifacts",
       "problemMatcher": "$msCompile"
     }
   ]
