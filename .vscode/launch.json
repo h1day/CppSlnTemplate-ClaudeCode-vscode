@@ -9,7 +9,7 @@
       "args": [],
       "cwd": "${workspaceFolder}",
       "console": "externalTerminal",
-      "preLaunchTask": "Build Debug",
+      "preLaunchTask": "🔨 Build Debug",
       "stopAtEntry": false
     },
     {
@@ -19,7 +19,7 @@
       "program": "${workspaceFolder}/x64/Release/cpp-sln-vscode.exe",
       "cwd": "${workspaceFolder}",
       "console": "externalTerminal",
-      "preLaunchTask": "Build Release"
+      "preLaunchTask": "🔨 Build Release"
     }
   ]
 }
