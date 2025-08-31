@@ -1,0 +1,41 @@
+{
+    "mcpServers": {
+        "repomix": {
+            "type": "stdio",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "npx -y repomix --mcp"
+            ],
+            "env": {}
+        },
+        "serena": {
+            "type": "stdio",
+            "command": "uvx",
+            "args": [
+                "--from",
+                "git+https://github.com/oraios/serena",
+                "serena-mcp-server"
+            ]
+        },
+        "context7": {
+            "type": "stdio",
+            "command": "npx",
+            "args": ["-y", "@upstash/context7-mcp@latest"]
+        },
+        "sequential-thinking": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-sequential-thinking"
+            ]
+        },
+        "deepwiki": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "mcp-deepwiki@latest"
+            ]
+        }
+    }
+}
