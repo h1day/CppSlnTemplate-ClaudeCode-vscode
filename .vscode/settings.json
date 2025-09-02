@@ -1,26 +1,4 @@
 {
     "C_Cpp.intelliSenseEngine": "default",
-    "C_Cpp.errorSquiggles": "enabled",
-    "activitusbar.views": [
-        {
-            "name": "task.🔨 Build Debug",
-            "codicon": "tools",
-            "tooltip": "Build Debug"
-        },
-        {
-            "name": "task.🧹 Clean Debug",
-            "codicon": "trash",
-            "tooltip": "Clean Debug"
-        },
-        {
-            "name": "task.🔨 Build Release",
-            "codicon": "tools",
-            "tooltip": "Build Release"
-        },
-        {
-            "name": "task.🧹 Clean Release",
-            "codicon": "trash",
-            "tooltip": "Clean Release"
-        }
-    ]
+    "C_Cpp.errorSquiggles": "enabled"
 }

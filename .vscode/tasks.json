@@ -16,7 +16,12 @@
         "isDefault": true
       },
       "detail": "Build project in Debug configuration (x64)",
-      "problemMatcher": "$msCompile"
+      "problemMatcher": "$msCompile",
+      "options": {
+        "statusbar": {
+          "label": "🔨Debug"
+        }
+      }
     },
     {
       "label": "🔨 Build Release",
@@ -29,7 +34,12 @@
         "/p:Platform=x64"
       ],
       "detail": "Build project in Release configuration (x64)",
-      "problemMatcher": "$msCompile"
+      "problemMatcher": "$msCompile",
+      "options": {
+        "statusbar": {
+          "label": "🔨Release"
+        }
+      }
     },
     {
       "label": "🧹 Clean Debug",
@@ -42,7 +52,12 @@
         "/p:Platform=x64"
       ],
       "detail": "Clean Debug build artifacts",
-      "problemMatcher": "$msCompile"
+      "problemMatcher": "$msCompile",
+      "options": {
+        "statusbar": {
+          "label": "🧹Debug"
+        }
+      }
     },
     {
       "label": "🧹 Clean Release",
@@ -55,7 +70,12 @@
         "/p:Platform=x64"
       ],
       "detail": "Clean Release build artifacts",
-      "problemMatcher": "$msCompile"
+      "problemMatcher": "$msCompile",
+      "options": {
+        "statusbar": {
+          "label": "🧹Release"
+        }
+      }
     }
   ]
 }
