@@ -76,6 +76,175 @@
           "label": "🧹Release"
         }
       }
+    },
+    {
+      "label": "🔍 ReSharper Inspect",
+      "type": "shell",
+      "command": "jb",
+      "args": [
+        "inspectcode",
+        "cpp-sln-vscode.sln",
+        "--output=${workspaceFolder}/resharper-report.xml",
+        "--format=Xml",
+        "--verbosity=WARN"
+      ],
+      "group": "test",
+      "detail": "Run ReSharper code inspection",
+      "problemMatcher": {
+        "owner": "resharper",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error|info)\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      },
+      "options": {
+        "statusbar": {
+          "label": "🔍Inspect"
+        }
+      }
+    },
+    {
+      "label": "🔍 ReSharper Inspect (Text Output)",
+      "type": "shell",
+      "command": "jb",
+      "args": [
+        "inspectcode",
+        "cpp-sln-vscode.sln",
+        "--output=${workspaceFolder}/resharper-report.txt",
+        "--format=Text",
+        "--verbosity=WARN"
+      ],
+      "group": "test",
+      "detail": "Run ReSharper code inspection with text output",
+      "problemMatcher": {
+        "owner": "resharper-text",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": {
+          "regexp": "^\\s*(.+?):(\\d+)\\s+(.+)$",
+          "file": 1,
+          "line": 2,
+          "message": 3,
+          "severity": "warning"
+        }
+      },
+      "options": {
+        "statusbar": {
+          "label": "🔍Text"
+        }
+      }
+    },
+    {
+      "label": "🔍 ReSharper Inspect (Console)",
+      "type": "shell",
+      "command": "jb",
+      "args": [
+        "inspectcode",
+        "cpp-sln-vscode.sln",
+        "--verbosity=WARN",
+        "--no-builtin-settings"
+      ],
+      "group": "test",
+      "detail": "Run ReSharper code inspection with console output",
+      "problemMatcher": {
+        "owner": "resharper-console",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": {
+          "regexp": "^\\s*(.+?):(\\d+)\\s+(.+)$",
+          "file": 1,
+          "line": 2,
+          "message": 3,
+          "severity": "warning"
+        }
+      },
+      "options": {
+        "statusbar": {
+          "label": "🔍Console"
+        }
+      }
+    },
+    {
+      "label": "🔍 ReSharper Inspect (XML Converted)",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy", "Bypass",
+        "-Command",
+        "jb inspectcode cpp-sln-vscode.sln --output=resharper-report.xml --format=Xml --verbosity=WARN; if ($LASTEXITCODE -eq 0) { .\\convert-resharper-xml.ps1 -InputFile resharper-report.xml }"
+      ],
+      "group": "test",
+      "detail": "Run ReSharper inspection and convert XML to VS Code format",
+      "problemMatcher": {
+        "owner": "resharper-xml",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": {
+          "regexp": "^(.+?):(\\d+):(\\d+):\\s+(error|warning|info):\\s+(.+)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      },
+      "options": {
+        "statusbar": {
+          "label": "🔍XML"
+        }
+      }
+    },
+    {
+      "label": "🔍 ReSharper Inspect (SARIF)",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy", "Bypass",
+        "-File", "convert-sarif.ps1",
+        "-InputFile", "resharper-report.sarif"
+      ],
+      "group": "test",
+      "detail": "Convert existing SARIF report to VS Code format",
+      "dependsOn": "🔍 ReSharper Generate SARIF",
+      "problemMatcher": {
+        "owner": "resharper-sarif",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": {
+          "regexp": "^(.+?):(\\d+):(\\d+):\\s+(error|warning|info):\\s+(.+?)\\s+\\[(.+?)\\]$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5,
+          "code": 6
+        }
+      },
+      "options": {
+        "statusbar": {
+          "label": "🔍SARIF"
+        }
+      }
+    },
+    {
+      "label": "🔍 ReSharper Generate SARIF",
+      "type": "shell",
+      "command": "jb",
+      "args": [
+        "inspectcode",
+        "cpp-sln-vscode.sln",
+        "--output=resharper-report.sarif",
+        "--format=Sarif",
+        "--verbosity=WARN"
+      ],
+      "group": "test",
+      "detail": "Generate SARIF report from ReSharper inspection",
+      "options": {
+        "statusbar": {
+          "hide": true
+        }
+      }
     }
   ]
 }

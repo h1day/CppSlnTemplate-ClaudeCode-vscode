@@ -7,7 +7,9 @@ using namespace std;
 // Test function to trigger cl.exe (MSVC) warnings
 static void test_function() {
     int unused_variable;                // C4101: unreferenced local variable
-    
+
+    float napier_const = 2.718281828459045235360287471352; // C4305: truncation from 'double' to 'float'
+
     int piNum = 3.14;                       // C4244: conversion from 'double' to 'int'
     
     if (piNum = 5) {                        // C4706: assignment within conditional expression
