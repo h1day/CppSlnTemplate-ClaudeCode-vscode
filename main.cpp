@@ -5,19 +5,19 @@
 using namespace std;
 
 // Test function to trigger cl.exe (MSVC) warnings
-void test_function() {
+static void test_function() {
     int unused_variable;                // C4101: unreferenced local variable
     
-    int x = 3.14;                       // C4244: conversion from 'double' to 'int'
+    int piNum = 3.14;                       // C4244: conversion from 'double' to 'int'
     
-    if (x = 5) {                        // C4706: assignment within conditional expression
+    if (piNum = 5) {                        // C4706: assignment within conditional expression
         cout << "Warning test" << endl;
     }
 
     // Signed/unsigned comparison warning
-    unsigned int ui = 10;
-    int si = -5;
-    if (ui > si) {                      // C4018: signed/unsigned mismatch
+    unsigned int unsigned_integer = 10;
+    int signed_integer = -5;
+    if (unsigned_integer > signed_integer) {                      // C4018: signed/unsigned mismatch
         cout << "Comparison warning" << endl;
     }
 }
